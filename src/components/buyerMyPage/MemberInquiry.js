@@ -7,6 +7,7 @@ import axios from 'axios';
 import { BrowserRouter, Link, Route, Routes, NavLink } from "react-router-dom";
 import BuyerMyPage from "../buyerMyPage/BuyerMyPage";
 import MemberEdit from "../buyerMyPage/MemberEdit";
+import {cloudServerIP} from "../../App"
 
 const size = 4;
 
@@ -44,7 +45,7 @@ function MemberInquiry(){
   let [userInfo,setUserInfo] = useState({ });
   useEffect(() => {
     axios
-      .get("/api/user", 
+      .get(cloudServerIP + "/api/user", 
         { withCredentials: true })
           .then((res) => {
             //console.log(res.data.result);

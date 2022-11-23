@@ -8,6 +8,8 @@ import { useNavigate } from "react-router-dom";
 import { LogoutOutlined } from "@ant-design/icons";
 import axios from "axios";
 import { useResetRecoilState } from "recoil";
+import {cloudServerIP} from "../../App"
+
 const LoginModal = () => {
   const [user, setUser] = useRecoilState(userState);
   
@@ -39,7 +41,7 @@ const LoginModal = () => {
   const logout = () => {
     console.log("logout btn is clicked");
     axios
-      .get("/api/user/logout", {
+      .get(cloudServerIP + "/api/user/logout", {
         headers: { "Content-Type": "application/json" },
       })
       .then((response) => {
@@ -52,7 +54,7 @@ const LoginModal = () => {
   };
   useEffect(() => {
     axios
-      .get("/api/user/login-check", {
+      .get(cloudServerIP + "/api/user/login-check", {
         headers: { "Content-Type": "application/json" },
       })
       .then(() => {})

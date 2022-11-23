@@ -37,6 +37,8 @@ import MainContent from "./components/main/MainContent";
 import RegisteredProduct from "./components/sellerMyPage/RegisteredProduct";
 import SellerGrade from "./components/sellerMyPage/SellerGrade";
 
+var cloudServerIP = 'http://34.64.178.90:8080';
+
 function App() {
   return (
     <BrowserRouter>
@@ -125,4 +127,4 @@ function App() {
     </BrowserRouter>
   );
 }
-export default App;
+export {App,cloudServerIP};

@@ -6,6 +6,8 @@ import { userState } from "../../recoil/userState";
 import { useState, useEffect } from "react";
 import { json, useNavigate } from "react-router-dom";
 import axios from "axios";
+import {cloudServerIP} from "../../App"
+
 function Login({ onCancel }) {
   const navigate = useNavigate;
   const [user, setUser] = useRecoilState(userState);
@@ -21,7 +23,7 @@ function Login({ onCancel }) {
 
     const json = JSON.stringify(object);
     axios
-      .post("/api/user/login", json, {
+      .post(cloudServerIP + "/api/user/login", json, {
         headers: { "Content-Type": "application/json" },
       })
       .then((response) => {

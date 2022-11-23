@@ -7,6 +7,7 @@ import { Avatar, Divider, List, Skeleton, Button } from 'antd';
 import React, { useEffect, useState } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import PaymentHistoryDetail from "../buyerMyPage/PaymentHistoryDetail";
+import {cloudServerIP} from "../../App"
 
 const style0 = {
     marginLeft: "20%",
@@ -70,7 +71,7 @@ function PaymentHistory(){
         setLoading(true);
 
         axios.
-        get("/api/buyer-mypage/order-history", {
+        get(cloudServerIP + "/api/buyer-mypage/order-history", {
             headers: { "Content-Type": "application/json" },
             params: {
                 startDate : date[0],

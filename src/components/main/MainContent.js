@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Grid from "./Grid";
 import MainCarousel from "./MainCarousel";
 import { AutoComplete, Col, Divider, Row } from "antd";
+import {cloudServerIP} from "../../App.js"
 
 const textStyle = {
 
@@ -10,7 +11,9 @@ const textStyle = {
 
   textAlign: "center",
 };
+
 function MainContent() {
+
   const [lastet, setLastet] = useState([
     {
       imgSigSrc: null,
@@ -37,8 +40,9 @@ function MainContent() {
     },
   ]);
   useEffect(() => {
+    console.log(cloudServerIP);
     axios
-      .get("/api/products/main-page/latest", {
+      .get(cloudServerIP + "/api/products/main-page/latest", {
         headers: { "Content-Type": "application/json" },
       })
       .then((res) => {
@@ -46,7 +50,7 @@ function MainContent() {
         console.log(lastet);
       });
     axios
-      .get("/api/products/main-page/order-count", {
+      .get(cloudServerIP + "/api/products/main-page/order-count", {
         headers: { "Content-Type": "application/json" },
       })
       .then((res) => {
@@ -54,7 +58,7 @@ function MainContent() {
         console.log(topOrder);
       });
     axios
-      .get("/api/products/main-page/review-rate-avg", {
+      .get(cloudServerIP + "/api/products/main-page/review-rate-avg", {
         headers: { "Content-Type": "application/json" },
       })
       .then((res) => {
@@ -77,7 +81,7 @@ function MainContent() {
             return (
               <Grid
                 key={i}
-                imgSigSrc={value.imgSigSrc}
+                imgSigSrc={cloudServerIP + value.imgSigSrc}
                 productId={value.productId}
                 productName={value.productName}
                 price={value.price}
@@ -97,7 +101,7 @@ function MainContent() {
             return (
               <Grid
                 key={i}
-                imgSigSrc={value.imgSigSrc}
+                imgSigSrc={cloudServerIP + value.imgSigSrc}
                 productId={value.productId}
                 productName={value.productName}
                 price={value.price}

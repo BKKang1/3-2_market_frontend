@@ -17,6 +17,7 @@ import { Typography } from "antd";
 import ImgCrop from "antd-img-crop";
 import axios from "axios";
 import BuyerMyPage from "../buyerMyPage/BuyerMyPage";
+import {cloudServerIP} from "../../App"
 
 const { Title } = Typography;
 const { RangePicker } = DatePicker;
@@ -59,7 +60,7 @@ function BusinessApplication(){
     }
 
     axios
-      .post("/api/business", formData, {
+      .post(`${cloudServerIP}/api/business`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       },
       { withCredentials: true })

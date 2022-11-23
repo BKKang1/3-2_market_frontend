@@ -8,6 +8,7 @@ import Chart from 'chart.js/auto';
 import { Line } from 'react-chartjs-2';
 import MonthChoice from "../main/MonthChoice";
 import BuyerMyPage from "./BuyerMyPage";
+import {cloudServerIP} from "../../App"
 
 const style0 = {
     marginLeft: "20%",
@@ -52,7 +53,7 @@ function PaymentHistoryGraph(){
 
     const getGraphData = () => {
         axios
-            .get("/api/buyer-mypage/order-price-statistics", {
+            .get(cloudServerIP + "/api/buyer-mypage/order-price-statistics", {
                 headers: { "Content-Type": "application/json" },
                 params: {
                     startDate : date[0],
