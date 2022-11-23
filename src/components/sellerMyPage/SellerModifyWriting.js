@@ -1,6 +1,6 @@
 import SellerMyPage from "./SellerMyPage";
 import ModifyWriting from "../writing/ModifyWriting";
-
+import {cloudServerIP} from "../../App"
 
 const SellerModifyWriting = () => {
   const style0 = {

@@ -6,6 +6,8 @@ import ShopCascader from "./ShopCascader";
 import ShopSelect from "./ShopSelect";
 import { useRef, useState } from "react";
 import ShopSearch from "./ShopSearch";
+import {cloudServerIP} from "../../App"
+
 const { Search } = Input;
 const suffix = (
   <AudioOutlined

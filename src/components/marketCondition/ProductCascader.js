@@ -4,6 +4,7 @@ import {
 } from "antd";
 import React, { useState,useEffect } from "react";
 import axios from 'axios';
+import {cloudServerIP} from "../../App"
 
 function ProductCascader(props){
   // const onChange = (value) => {
@@ -13,7 +14,7 @@ function ProductCascader(props){
   const [options, setOptions] = useState(null);
 
   useEffect(() => {
-    axios.get("/api/item-category").then((response) => {
+    axios.get(cloudServerIP + "/api/item-category").then((response) => {
       console.log(response.data.category);
       setOptions(response.data.category);
     });

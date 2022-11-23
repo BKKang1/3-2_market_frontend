@@ -1,6 +1,7 @@
 import { Button, Modal } from "antd";
 import React, { useState } from "react";
 import TotalOrder from "./TotalOrder";
+import {cloudServerIP} from "../../App"
 
 const OrderModal = (props) => {
   const [isModalOpen, setIsModalOpen] = useState(false);

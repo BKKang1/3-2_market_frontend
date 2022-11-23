@@ -2,7 +2,9 @@ import { Avatar, Button, Form, Input, List, Skeleton } from "antd";
 import CommentOfList from "./CommentOfList";
 import moment from "moment";
 import React, { useState } from "react";
+import {cloudServerIP} from "../../App"
 const { TextArea } = Input;
+
 function CommentList({ comments, remove, update, setComments }) {
   return (
     <List

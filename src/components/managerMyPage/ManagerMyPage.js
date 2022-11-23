@@ -15,6 +15,7 @@ import {
 } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { userState } from "../../recoil/userState";
+import {cloudServerIP} from "../../App"
 
 const style0 = {
   marginLeft: "20%",
@@ -83,7 +84,7 @@ function ManageMyPage() {
   const logout = (e) => {
     console.log("logout btn is clicked");
     axios
-      .get("/api/user/logout", {
+      .get(cloudServerIP + "/api/user/logout", {
         headers: { "Content-Type": "application/json" },
       })
       .then((response) => {

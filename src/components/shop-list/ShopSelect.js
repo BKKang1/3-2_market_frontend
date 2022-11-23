@@ -1,5 +1,7 @@
 import { Select } from "antd";
 import React from "react";
+import {cloudServerIP} from "../../App"
+
 const { Option } = Select;
 
 const ShopSelect = ({ selId }) => {

@@ -16,9 +16,9 @@ import {
   Upload,
 } from "antd";
 import { BrowserRouter, Link, Route, Routes, NavLink } from "react-router-dom";
-
 import YearChoice from "../../main/YearChoice";
 import LineGraph from "./LineGraph";
+import {cloudServerIP} from "../../../App"
 
 const style0 = {
   marginLeft: "20%",

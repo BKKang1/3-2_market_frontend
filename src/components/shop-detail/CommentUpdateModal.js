@@ -5,6 +5,8 @@ import Review from "./Review.js";
 import ReviewWriting from "./ReviewWriting.js";
 import { useRecoilState } from "recoil";
 import { userState } from "../../recoil/userState.js";
+import {cloudServerIP} from "../../App"
+
 const CommentUpdateModal = ({ comments, setComments, comment, remove }) => {
   const [open, setOpen] = useState(false);
   const [confirmLoading, setConfirmLoading] = useState(false);

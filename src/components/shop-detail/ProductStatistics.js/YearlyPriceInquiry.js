@@ -17,6 +17,7 @@ import {
 } from "antd";
 import { BrowserRouter, Link, Route, Routes, NavLink } from "react-router-dom";
 import LineGraph from "./LineGraph";
+import {cloudServerIP} from "../../../App"
 
 const style0 = {
   marginLeft: "20%",

@@ -2,12 +2,13 @@ import { Cascader } from "antd";
 import React from "react";
 import { useState, useRef, useEffect } from "react";
 import axios from "axios";
+import {cloudServerIP} from "../../App"
 
 const ShopCascader = ({ casId }) => {
   const [options, setOptions] = useState(null);
 
   useEffect(() => {
-    axios.get("/api/item-category").then((response) => {
+    axios.get(cloudServerIP + "/api/item-category").then((response) => {
       console.log(response.data.category);
       setOptions(response.data.category);
     });

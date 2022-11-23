@@ -15,6 +15,7 @@ import {
 import { useRecoilState } from "recoil";
 import { userState } from "../../recoil/userState";
 import WithDrawlModal from "../withdrawal/WithDrawlModal";
+import {cloudServerIP} from "../../App"
 
 const style0 = {
   marginLeft: "20%",
@@ -88,7 +89,7 @@ function SellerMyPage() {
   const logout = (e) => {
     console.log("logout btn is clicked");
     axios
-      .get("/api/user/logout", {
+      .get(cloudServerIP + "/api/user/logout", {
         headers: { "Content-Type": "application/json" },
       })
       .then((response) => {

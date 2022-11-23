@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from "react";
+import {cloudServerIP} from "../../App"
 
 function PriceComparison({ price, retail, wholesale }) {
   const redStyle = {
