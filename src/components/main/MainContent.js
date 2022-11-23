@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Grid from "./Grid";
 import MainCarousel from "./MainCarousel";
 import { AutoComplete, Col, Divider, Row } from "antd";
-import {cloudServerIP} from "../../App.js"
+import {cloudServerIP} from "../../App"
 
 const textStyle = {
 

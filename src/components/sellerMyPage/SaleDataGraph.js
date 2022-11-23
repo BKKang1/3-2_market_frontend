@@ -11,6 +11,7 @@ import { userState } from "../../recoil/userState";
 import MonthChoice from "../main/MonthChoice";
 import SellerMyPage from "./SellerMyPage";
 import ShopCascader from "../shop-list/ShopCascader";
+import {cloudServerIP} from "../../App"
 
 const style0 = {
     marginLeft: "20%",
@@ -112,7 +113,7 @@ function SaleDataGraph(){
 
     const getGraphData1 = () => {
         axios
-            .get("/api/seller-mypage/order-price-statistics", {
+            .get(cloudServerIP + "/api/seller-mypage/order-price-statistics", {
                 headers: { "Content-Type": "application/json" },
                 params: {
                     startDate : date[0],
@@ -134,7 +135,7 @@ function SaleDataGraph(){
 
     const getGraphData2 = () => {
         axios
-            .get("/api/seller-mypage/order-price-percentile-statistics", {
+            .get(cloudServerIP + "/api/seller-mypage/order-price-percentile-statistics", {
                 headers: { "Content-Type": "application/json" },
                 params: {
                     startDate : date[0],
@@ -155,7 +156,7 @@ function SaleDataGraph(){
 
     const getGraphData3 = () => {
         axios
-            .get("/api/seller-mypage/order-count-statistics", {
+            .get(cloudServerIP + "/api/seller-mypage/order-count-statistics", {
                 headers: { "Content-Type": "application/json" },
                 params: {
                     startDate : date[0],

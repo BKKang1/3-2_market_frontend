@@ -3,6 +3,7 @@ import Chart from 'chart.js/auto';
 import { Line } from 'react-chartjs-2';
 import {useState, useEffect } from "react";
 import axios from 'axios';
+import {cloudServerIP} from "../../../App"
 
 let options = {
     spanGaps: true,
@@ -60,7 +61,7 @@ function LineGraph(props){
 
         if(props.data[0] == "일간-소매"){
             axios
-                .get("http://localhost:8080/api/wholesale-and-retail/day/retail",
+                .get(cloudServerIP + "/api/wholesale-and-retail/day/retail",
                 {params: {
                     start: props.data[2][0],
                     end: props.data[2][1],
@@ -82,7 +83,7 @@ function LineGraph(props){
         }
         else if(props.data[0] == "일간-도매"){
             axios
-                .get("http://localhost:8080/api/wholesale-and-retail/day/wholesale",
+                .get( cloudServerIP + "/api/wholesale-and-retail/day/wholesale",
                 {params: {
                     start: props.data[2][0],
                     end: props.data[2][1],
@@ -104,7 +105,7 @@ function LineGraph(props){
         }
         else if(props.data[0] == "월간-소매"){
             axios
-                .get("/api/wholesale-and-retail/monthly",
+                .get(cloudServerIP + "/api/wholesale-and-retail/monthly",
                 {params: {
                     year: props.data[2],
                     kindGradeId: props.data[1],
@@ -141,7 +142,7 @@ function LineGraph(props){
         }
         else if(props.data[0] == "월간-도매"){
             axios
-                .get("/api/wholesale-and-retail/monthly",
+                .get(cloudServerIP + "/api/wholesale-and-retail/monthly",
                 {params: {
                     year: props.data[2],
                     kindGradeId: props.data[1],
@@ -177,7 +178,7 @@ function LineGraph(props){
         }
         else if(props.data[0] == "연간-소매"){
             axios
-                .get("/api/wholesale-and-retail/yearly",
+                .get(cloudServerIP + "/api/wholesale-and-retail/yearly",
                 {params: {
                     kindGradeId: props.data[1],
                 }}, 
@@ -198,7 +199,7 @@ function LineGraph(props){
         }
         else if(props.data[0] == "연간-도매"){
             axios
-                .get("/api/wholesale-and-retail/yearly",
+                .get(cloudServerIP + "/api/wholesale-and-retail/yearly",
                 {params: {
                     kindGradeId: props.data[1],
                 }}, 

@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Pie } from "@ant-design/plots";
 import axios from "axios";
 import PieGraph from "./PieGraph";
+import {cloudServerIP} from "../../App"
+
 const ProductPieGraph = ({ productId }) => {
   const redStyle = {
     color: "red",
@@ -16,7 +18,7 @@ const ProductPieGraph = ({ productId }) => {
     percent:null,
   });
   useEffect(() => {
-    axios.get(`/api/products/statistics/${productId}`).then((response) => {
+    axios.get(cloudServerIP + `/api/products/statistics/${productId}`).then((response) => {
       console.log("원형그래프", response.data.result);
       response.data.result.topPieGraphPercent.map((value) => {
         value.percent = Number(value.percent);

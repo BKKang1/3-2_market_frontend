@@ -1,5 +1,7 @@
 import SellerMyPage from "./SellerMyPage";
 import CreateWriting from "../writing/CreateWriting";
+import {cloudServerIP} from "../../App"
+
 const SellerCreateWriting = () => {
   const style0 = {
     marginLeft: "20%",

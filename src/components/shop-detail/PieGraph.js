@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Pie } from "@ant-design/plots";
+import {cloudServerIP} from "../../App"
+
 function PieGraph({ data }) {
   const config = {
     appendPadding: 10,

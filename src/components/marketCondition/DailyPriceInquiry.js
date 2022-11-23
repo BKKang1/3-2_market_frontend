@@ -8,6 +8,7 @@ import MarketCondition from "./MarketCondition";
 import ProductCascader from "./ProductCascader";
 import DateChoice from "../main/DateChoice";
 import LineGraph from "./LineGraph"
+import {cloudServerIP} from "../../App"
 
 const style0 = {
     marginLeft: "20%",

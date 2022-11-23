@@ -1,5 +1,4 @@
 import { Avatar, Button, Comment, Form, Input, List, Rate } from "antd";
-
 import moment from "moment";
 import React, { useState, useEffect } from "react";
 import CommentList from "./CommentList.js";
@@ -11,7 +10,10 @@ import { resolveOnChange } from "antd/lib/input/Input.js";
 import { json } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import {cloudServerIP} from "../../App"
+
 const { TextArea } = Input;
+
 const ReviewWriting = ({
   comments,
   setComments,
@@ -50,7 +52,7 @@ const ReviewWriting = ({
     console.log("commentddd", comment);
     if (comment) {
       axios
-        .patch(`/api/review/${comment.uid}`, json, {
+        .patch(cloudServerIP + `/api/review/${comment.uid}`, json, {
           headers: { "Content-Type": "application/json" },
         })
         .then((response) => {
@@ -64,7 +66,7 @@ const ReviewWriting = ({
         .catch((error) => alert(error.response.data.msg));
     } else {
       axios
-        .post(`/api/review/${productNum}`, json, {
+        .post(cloudServerIP + `/api/review/${productNum}`, json, {
           headers: { "Content-Type": "application/json" },
         })
         .then((response) => {

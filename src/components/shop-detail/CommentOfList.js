@@ -10,6 +10,8 @@ import CommentUpdateModal from "./CommentUpdateModal";
 import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { userState } from "../../recoil/userState.js";
+import {cloudServerIP} from "../../App"
+
 const CommentOfList = (props) => {
   const ndisplayBtn={
     display:"none"

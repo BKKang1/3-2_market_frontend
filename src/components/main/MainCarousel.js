@@ -2,6 +2,8 @@ import pic from "../../img/샤인머스켓.png";
 import { Carousel } from "antd";
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
+import {cloudServerIP} from "../../App"
+
 const imgStyle = {
   border: "1px solid green",
   width: "750px",
@@ -44,7 +46,7 @@ function MainCarousel({ reviewRate }) {
             <div key={i}>
               <h3 style={contentStyle}>
                 <NavLink to={productRootAddress + value.productId}>
-                  <img src={value.imgSigSrc} style={imgStyle} />
+                  <img src={cloudServerIP + value.imgSigSrc} style={imgStyle} />
                 </NavLink>
               </h3>
             </div>
