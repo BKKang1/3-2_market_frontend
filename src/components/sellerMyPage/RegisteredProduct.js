@@ -33,6 +33,7 @@ function RegisteredProduct() {
         cloudServerIP + `/api/seller-mypage/sale-list?pageSize=${pageSize}&pageNum=${pageNum}`,
         {
           headers: { "Content-Type": "application/json" },
+          withCredentials: true
         }
       )
       .then((response) => {
@@ -68,6 +69,7 @@ function RegisteredProduct() {
     axios
       .delete(cloudServerIP + `/api/products/${props}`, {
         headers: { "Content-Type": "application/json" },
+        withCredentials: true
       })
       .then((response) => {
         message.success(response.data.result.msg);

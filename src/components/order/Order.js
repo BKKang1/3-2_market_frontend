@@ -21,7 +21,7 @@ function Order({ price, productId, handleCancel }) {
   };
   useEffect(() => {
     axios
-      .get(cloudServerIP + "/api/order/address")
+      .get(cloudServerIP + "/api/order/address",{withCredentials: true})
       .then((response) => {
         console.log(response.data.result);
         setAddress(response.data.result.road);
@@ -51,6 +51,7 @@ function Order({ price, productId, handleCancel }) {
     axios
       .post(cloudServerIP + "/api/order", json, {
         headers: { "Content-Type": "application/json" },
+        withCredentials: true
       })
       .then((response) => {
         alert(response.data.result.msg);

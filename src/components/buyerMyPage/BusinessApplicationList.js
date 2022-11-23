@@ -47,8 +47,8 @@ function BusinessApplicationList(){
         axios
         .get(cloudServerIP + "/api/business/user", {
           headers: { "Content-Type": "application/json" },
-        },
-        { withCredentials: true })
+          withCredentials : true
+        },)
         .then((response) => {
             console.log(response.data.result);
             setData(response.data.result);

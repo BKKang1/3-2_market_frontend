@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import { json, useNavigate } from "react-router-dom";
 import axios from "axios";
 import {cloudServerIP} from "../../App"
+//axios.defaults.withCredentials = true;
 
 function Login({ onCancel }) {
   const navigate = useNavigate;
@@ -20,14 +21,17 @@ function Login({ onCancel }) {
   };
   const onFinish = (values) => {
     var object = new Object(values);
-
     const json = JSON.stringify(object);
+
     axios
-      .post(cloudServerIP + "/api/user/login", json, {
-        headers: { "Content-Type": "application/json" },
+      .post( cloudServerIP + "/api/user/login", json, {
+        headers: { 
+          "Content-Type": "application/json"
+        },
+        withCredentials: true  
       })
       .then((response) => {
-        console.log(response.data);
+        console.log(response);
         if (response.data) {
           setUser(response.data.result);
         } else {
@@ -38,7 +42,7 @@ function Login({ onCancel }) {
       .then(() => {
         onCancel();
       })
-      .catch((error) => alert(error.response.data.msg));
+      .catch((error) => console.log(error.response.data.msg));
   };
 
   const onFinishFailed = (errorInfo) => {

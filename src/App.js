@@ -38,6 +38,7 @@ import RegisteredProduct from "./components/sellerMyPage/RegisteredProduct";
 import SellerGrade from "./components/sellerMyPage/SellerGrade";
 
 var cloudServerIP = 'http://34.64.178.90:8080';
+//var cloudServerIP = 'http://localhost:8080';
 
 function App() {
   return (

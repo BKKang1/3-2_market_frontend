@@ -51,6 +51,7 @@ function PaymentHistoryDetail(props){
         axios
         .delete(cloudServerIP + `/api/order/${e}`, {
             headers: { "Content-Type": "application/json" },
+            withCredentials : true
         })
         .then((response) => {
             alert(response.data.result.msg);

@@ -56,6 +56,7 @@ function CreateWriting() {
     axios
       .get(cloudServerIP + `/api/item-category/${id.current}`, {
         headers: { "Content-Type": "application/json" },
+        withCredentials: true
       })
       .then((response) => {
         console.log(response.data.result);
@@ -96,6 +97,7 @@ function CreateWriting() {
     axios
       .post(cloudServerIP + "/api/products", formData, {
         headers: { "Content-Type": "multipart/form-data" },
+        withCredentials: true
       })
       .then((response) => alert(response.data.result.msg))
 

@@ -8,7 +8,7 @@ const ShopCascader = ({ casId }) => {
   const [options, setOptions] = useState(null);
 
   useEffect(() => {
-    axios.get(cloudServerIP + "/api/item-category").then((response) => {
+    axios.get(cloudServerIP + "/api/item-category",{withCredentials: true}).then((response) => {
       console.log(response.data.category);
       setOptions(response.data.category);
     });
