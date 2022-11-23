@@ -79,7 +79,7 @@ function ShopList({ selId, casId, serverData, setServerData }) {
               <img
                 width={272}
                 alt="logo"
-                src={item.signatureImgSrc}
+                src={cloudServerIP + item.signatureImgSrc}
                 style={imgStyle}
               />
             }
