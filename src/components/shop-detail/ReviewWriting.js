@@ -54,6 +54,7 @@ const ReviewWriting = ({
       axios
         .patch(cloudServerIP + `/api/review/${comment.uid}`, json, {
           headers: { "Content-Type": "application/json" },
+          withCredentials: true
         })
         .then((response) => {
           const data = response.data.result;
@@ -68,6 +69,7 @@ const ReviewWriting = ({
       axios
         .post(cloudServerIP + `/api/review/${productNum}`, json, {
           headers: { "Content-Type": "application/json" },
+          withCredentials: true
         })
         .then((response) => {
           const data = response.data.result;

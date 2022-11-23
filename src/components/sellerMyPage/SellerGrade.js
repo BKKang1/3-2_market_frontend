@@ -91,6 +91,7 @@ function SellerGrade(){
         axios
         .get(cloudServerIP + "/api/seller-mypage/trust-score", {
             headers: { "Content-Type": "application/json" },
+            withCredentials: true
         },)
         .then((response) => {
             console.log(response.data.result);
@@ -108,6 +109,7 @@ function SellerGrade(){
                     startDate : date[0],
                     endDate : date[1],
                 },
+                withCredentials: true
             },)
             .then((response) => {
                 console.log(response);
@@ -125,6 +127,7 @@ function SellerGrade(){
                     startDate : date[0],
                     endDate : date[1],
                 },
+                withCredentials: true
             },)
             .then((response) => {
                 console.log(response.data);

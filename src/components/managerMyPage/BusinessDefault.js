@@ -50,6 +50,7 @@ const BusinessDefault = () => {
     axios
       .get(cloudServerIP + `/api/business/${businessId}`, {
         headers: { "Content-Type": "application/json" },
+        withCredentials : true
       })
       .then((response) => {
         console.log(response.data.result);
@@ -60,7 +61,10 @@ const BusinessDefault = () => {
   const accept = () => {
     axios
       .post(cloudServerIP + `/api/business/accept/${businessId}`, 
-        { withCredentials: true })
+        { 
+          headers: { "Content-Type": "application/json" },
+          withCredentials: true 
+        })
       .then((res) => {
         console.log(res.data.result);
         alert(res.data.result.msg);
@@ -72,7 +76,10 @@ const BusinessDefault = () => {
   const reject = () => {
     axios
     .post(cloudServerIP + `/api/business/reject/${businessId}`, 
-      { withCredentials: true })
+      { 
+        headers: { "Content-Type": "application/json" },
+        withCredentials: true 
+      })
     .then((res) => {
       console.log(res.data.result);
       alert(res.data.result.msg);

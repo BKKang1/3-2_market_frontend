@@ -43,6 +43,7 @@ function BusinessApplicationInquiry(){
     axios
     .get(cloudServerIP + "/api/business", {
       headers: { "Content-Type": "application/json" },
+      withCredentials : true
     })
     .then((response) => {
       console.log(response.data.result);

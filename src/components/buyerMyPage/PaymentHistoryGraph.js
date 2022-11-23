@@ -59,6 +59,7 @@ function PaymentHistoryGraph(){
                     startDate : date[0],
                     endDate : date[1],
                 },
+                withCredentials : true
             },)
             .then((response) => {
                 console.log(response.data.result);

@@ -30,6 +30,7 @@ function ShopList({ selId, casId, serverData, setServerData }) {
         cloudServerIP + `/api/products?productName=&orderBy=${selId.current}&itemCategoryCode=${casId.current[0]}&itemCode=${casId.current[1]}&kindId=${casId.current[2]}&kindGradeId=${casId.current[3]}&pageSize=${pageSize}&pageNum=${pageNum}`,
         {
           headers: { "Content-Type": "application/json" },
+          withCredentials: true
         }
       )
       .then((response) => {

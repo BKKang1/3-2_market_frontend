@@ -32,6 +32,7 @@ function SignUp({ onCancel }) {
     axios
       .post(cloudServerIP + "/api/user", json, {
         headers: { "Content-Type": "application/json" },
+        withCredentials: true
       })
       .then((response) => alert(response.data.result.msg))
   

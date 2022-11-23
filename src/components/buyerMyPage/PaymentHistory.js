@@ -79,6 +79,7 @@ function PaymentHistory(){
                 pageSize : 10,
                 pageNum : pageNum,
             },
+            withCredentials : true
         })
         .then((res) => {
             console.log(res);

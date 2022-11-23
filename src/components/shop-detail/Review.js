@@ -29,6 +29,7 @@ const Review = ({ productNum }) => {
     axios
       .get(cloudServerIP + `/api/review/${productNum}`, {
         headers: { "Content-Type": "application/json" },
+        withCredentials: true
       })
       .then((response) => {
         const data = response.data.result;
@@ -75,6 +76,7 @@ const Review = ({ productNum }) => {
     axios
       .delete(cloudServerIP + `/api/review/${id}`, {
         headers: { "Content-Type": "application/json" },
+        withCredentials: true
       })
       .then(() => {
         refreshPage();

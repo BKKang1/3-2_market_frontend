@@ -86,6 +86,7 @@ function ManageMyPage() {
     axios
       .get(cloudServerIP + "/api/user/logout", {
         headers: { "Content-Type": "application/json" },
+        withCredentials: true 
       })
       .then((response) => {
         console.log(response.data);

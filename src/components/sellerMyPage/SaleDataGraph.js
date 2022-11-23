@@ -123,6 +123,7 @@ function SaleDataGraph(){
                     kindId : casId.current[2],
                     kindGradeId : casId.current[3],
                 },
+                withCredentials: true
             },)
             .then((response) => {
                 console.log(response.data);
@@ -145,6 +146,7 @@ function SaleDataGraph(){
                     kindId : casId.current[2],
                     kindGradeId : casId.current[3],
                 },
+                withCredentials: true
             },)
             .then((response) => {
                 console.log(response.data);
@@ -166,6 +168,7 @@ function SaleDataGraph(){
                     kindId : casId.current[2],
                     kindGradeId : casId.current[3],
                 },
+                withCredentials: true
             },)
             .then((response) => {
                 console.log(response.data.result);

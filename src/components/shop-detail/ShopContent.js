@@ -103,6 +103,7 @@ const ShopContent = () => {
     axios
       .post(cloudServerIP + "/api/carts", json, {
         headers: { "Content-Type": "application/json" },
+        withCredentials: true
       })
       .then((response) => alert(response.data.result.msg))
 
@@ -133,6 +134,7 @@ const ShopContent = () => {
     axios
       .get(cloudServerIP + `/api/products/${productNum}`, {
         headers: { "Content-Type": "application/json" },
+        withCredentials: true
       })
       .then((response) => {
         const data = response.data.result;

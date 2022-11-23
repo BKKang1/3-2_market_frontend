@@ -44,6 +44,7 @@ function MainContent() {
     axios
       .get(cloudServerIP + "/api/products/main-page/latest", {
         headers: { "Content-Type": "application/json" },
+        withCredentials : true
       })
       .then((res) => {
         setLastet(res.data.result);
@@ -52,6 +53,7 @@ function MainContent() {
     axios
       .get(cloudServerIP + "/api/products/main-page/order-count", {
         headers: { "Content-Type": "application/json" },
+        withCredentials : true
       })
       .then((res) => {
         setTopOrder(res.data.result);
@@ -60,6 +62,7 @@ function MainContent() {
     axios
       .get(cloudServerIP + "/api/products/main-page/review-rate-avg", {
         headers: { "Content-Type": "application/json" },
+        withCredentials : true
       })
       .then((res) => {
         setReviewRate(res.data.result);

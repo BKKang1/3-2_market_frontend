@@ -57,6 +57,7 @@ function Cart(){
         axios
         .get(cloudServerIP + "/api/carts", {
           headers: { "Content-Type": "application/json" },
+          withCredentials : true
         })
         .then((response) => {
           console.log(response.data.result);
@@ -70,6 +71,7 @@ function Cart(){
         axios
           .delete(cloudServerIP + `/api/carts/${props}`, {
             headers: { "Content-Type": "application/json" },
+            withCredentials : true
           })
           .then((response) => {
             alert(response.data.result.msg);

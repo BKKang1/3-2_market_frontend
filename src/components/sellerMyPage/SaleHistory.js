@@ -86,15 +86,19 @@ function SaleHistory(){
 
     const getData = () => {
         axios
-            .get(cloudServerIP + "/api/seller-mypage/sale-history", {
-                headers: { "Content-Type": "application/json" },
+            .get("/api/seller-mypage/sale-history", {
+                headers: { 
+                    "Content-Type": "application/json",
+                },
                 params: {
                     startDate : date[0],
                     endDate : date[1],
                     pageSize : pageSize,
                     pageNum : pageNum,
                 },
-            },)
+                withCredentials: true
+            }, 
+            )
             .then((response) => {
                 console.log(response);
                 setServerData(response.data.result);
