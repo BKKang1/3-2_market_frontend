@@ -157,7 +157,7 @@ const ShopContent = () => {
             <p>
               판매자 등급{" "}
               <Text type="danger">
-                {product.sellerRank} 상위({product.sellerPercent})%
+                {product.sellerRank} 백분위({product.sellerPercent})%
               </Text>
             </p>
             <p>

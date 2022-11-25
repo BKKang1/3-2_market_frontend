@@ -37,13 +37,9 @@ import MainContent from "./components/main/MainContent";
 import RegisteredProduct from "./components/sellerMyPage/RegisteredProduct";
 import SellerGrade from "./components/sellerMyPage/SellerGrade";
 
-<<<<<<< HEAD
-var cloudServerIP = "http://34.64.178.90:8080";
-=======
-var cloudServerIP = 'http://34.64.178.90:8080';
+//var cloudServerIP = 'https://34.64.178.90:8080';
 //var cloudServerIP = 'http://localhost:8080';
->>>>>>> a09d5c66a41df88ad5ec43045dfd1c42288345a7
-
+var cloudServerIP = 'http://34.64.111.237:8080';
 function App() {
 
   return (

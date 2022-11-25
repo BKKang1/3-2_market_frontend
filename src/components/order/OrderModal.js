@@ -28,7 +28,7 @@ const OrderModal = ({ price, productId }) => {
       </Button>
       <Modal
         destroyOnClose="true"
-        title="Basic Modal"
+        title="구매 하기"
         open={isModalOpen}
         onOk={handleOk}
         onCancel={handleCancel}

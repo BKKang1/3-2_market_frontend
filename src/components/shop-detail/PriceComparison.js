@@ -18,13 +18,13 @@ function PriceComparison({ price, retail, wholesale }) {
     console.log(wholesale);
     if (retail.price) {
       setRetailGap(Math.abs(retail.price - price));
-      setRetailGapPer(Math.floor((price / retail.price) * 100));
+      setRetailGapPer(Math.floor((Math.abs(retail.price - price) / retail.price) * 100));
 
     }
 
     if (wholesale.price) {
       setwholeSaleGap(Math.abs(wholesale.price - price));
-      setwholeSaleGapPer(Math.floor((price / wholesale.price) * 100));
+      setwholeSaleGapPer(Math.floor((Math.abs(wholesale.price - price) / wholesale.price) * 100));
  
     }
   }, [price]);

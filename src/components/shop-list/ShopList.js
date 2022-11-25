@@ -67,12 +67,12 @@ function ShopList({ selId, casId, serverData, setServerData }) {
             actions={[
               <IconText
                 icon={StarOutlined}
-                text="판매자 등급"
+                text={item.sellerRank+"등급"}
                 key={item.sellerRank}
               />,
               <IconText
                 icon={LikeOutlined}
-                text="판매자 백분위"
+                text={"백분위:"+item.sellerPercent+"%"}
                 key={item.sellerPercent}
               />,
             ]}
