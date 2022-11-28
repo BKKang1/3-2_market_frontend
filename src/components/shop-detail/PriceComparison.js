@@ -75,7 +75,7 @@ function PriceComparison({ price, retail, wholesale }) {
   } else {
     return (
       <div>
-        <h2>시세 데이터 없음</h2>
+        <h2>최근 일주일간 시세 정보 없음</h2>
       </div>
     );
   }

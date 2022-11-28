@@ -1,11 +1,11 @@
-import { LikeOutlined, MessageOutlined, StarOutlined } from "@ant-design/icons";
+import { LikeOutlined, RightOutlined, StarOutlined } from "@ant-design/icons";
 import { Avatar, List, Space } from "antd";
 import { useRef, useState, useEffect } from "react";
 import axios from "axios";
 import React from "react";
 import { Link } from "react-router-dom";
 import { useResetRecoilState } from "recoil";
-import {cloudServerIP} from "../../App"
+import { cloudServerIP } from "../../App";
 
 const imgStyle = {
   width: "200px",
@@ -27,10 +27,11 @@ function ShopList({ selId, casId, serverData, setServerData }) {
   useEffect(() => {
     axios
       .get(
-        cloudServerIP + `/api/products?productName=&orderBy=${selId.current}&itemCategoryCode=${casId.current[0]}&itemCode=${casId.current[1]}&kindId=${casId.current[2]}&kindGradeId=${casId.current[3]}&pageSize=${pageSize}&pageNum=${pageNum}`,
+        cloudServerIP +
+          `/api/products?productName=&orderBy=${selId.current}&itemCategoryCode=${casId.current[0]}&itemCode=${casId.current[1]}&kindId=${casId.current[2]}&kindGradeId=${casId.current[3]}&pageSize=${pageSize}&pageNum=${pageNum}`,
         {
           headers: { "Content-Type": "application/json" },
-          withCredentials: true
+          withCredentials: true,
         }
       )
       .then((response) => {
@@ -41,23 +42,20 @@ function ShopList({ selId, casId, serverData, setServerData }) {
         console.log("serverdata: ", data);
       })
       .catch((error) => alert(error.response));
-  }, [pageNum,pageSize]);
+  }, [pageNum, pageSize]);
 
   return (
     <List
       itemLayout="vertical"
       size="large"
       pagination={{
-        onChange: (page,size) => {
-         
+        onChange: (page, size) => {
           setPageSize(size);
           setPageNum(page);
- 
         },
         total: totalItemNum,
-        pageSize:pageSize,
+        pageSize: pageSize,
         pageSizeOptions: [5, 10],
- 
       }}
       dataSource={serverData}
       renderItem={(item) => {
@@ -67,13 +65,18 @@ function ShopList({ selId, casId, serverData, setServerData }) {
             actions={[
               <IconText
                 icon={StarOutlined}
-                text={item.sellerRank+"등급"}
+                text={item.sellerRank + "등급"}
                 key={item.sellerRank}
               />,
               <IconText
                 icon={LikeOutlined}
-                text={"백분위:"+item.sellerPercent+"%"}
+                text={"백분위:" + item.sellerPercent + "%"}
                 key={item.sellerPercent}
+              />,
+              <IconText
+                icon={RightOutlined}
+                text={"카테고리:" + item.category }
+                key={item.category}
               />,
             ]}
             extra={

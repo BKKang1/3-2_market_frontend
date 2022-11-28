@@ -22,7 +22,7 @@ const CommentOfList = (props) => {
   const actions = [
     <span>{props.comment.rate}</span>,
 
-    <Button onClick={() => props.remove(props.comment.uid) }style={user===null?null:user.id===props.comment.userId? null:ndisplayBtn}>삭제</Button>,
+    <Button onClick={() => props.remove(props.comment.uid) }style={user===null?ndisplayBtn:user.id===props.comment.userId? null:ndisplayBtn}>삭제</Button>,
 
     <span>
       <CommentUpdateModal

@@ -110,6 +110,7 @@ const ShopContent = () => {
       .catch((error) => alert(error.response.data.msg));
   }
   const [product, setProduct] = useState({
+    category:null,
     productId: null,
     kindGradeId: null,
     productName: null,
@@ -172,6 +173,10 @@ const ShopContent = () => {
               등록일자
               <Text type="danger"> {product.createdDate}</Text> 일
             </p>
+            <p>
+              카테고리
+              <Text type="danger"> {product.category}</Text> 
+            </p>
           </Card>
 
           <Image
@@ -231,7 +236,8 @@ const ShopContent = () => {
         <ProductLineGraph kindGradeId={product.kindGradeId} />
 
         <Divider />
-
+        
+              
         <ProductPieGraph productId={productNum}></ProductPieGraph>
 
         <Divider />

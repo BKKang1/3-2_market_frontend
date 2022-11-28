@@ -40,6 +40,7 @@ const ProductPieGraph = ({ productId }) => {
             해당 카테고리에서{" "}
             <p style={blueStyle}>{sellerPercent.name} 판매자가</p>
             <span style={redStyle}>
+              <b>한 달간 </b>
               {sellerPercent.price} 원 ({sellerPercent.percent}%)
             </span>
             만큼 판매

@@ -205,6 +205,7 @@ function LineGraph(props){
                     setStatus(res.data.price[1].caption);
                     setData({"labels":tempArr1, "datasets":tempArr2,});
                 })
+                .catch((err) => {console.log(err); alert("해당 품목의 소매 정보가 없습니다.");});
                 
         }
         else if(props.data[0] == "연간-도매"){
@@ -228,6 +229,7 @@ function LineGraph(props){
                     setStatus(res.data.price[0].caption);
                     setData({"labels":tempArr1, "datasets":tempArr3,});
                 })
+                .catch((err) => {console.log(err); alert("해당 품목의 도매 정보가 없습니다.");});
         
         }
     }, [props.data]);

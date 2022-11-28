@@ -34,15 +34,13 @@ function Login({ onCancel }) {
         console.log(response);
         if (response.data) {
           setUser(response.data.result);
-        } else {
-          console.log("로그인실패");
-        }
+        } 
       })
 
       .then(() => {
         onCancel();
       })
-      .catch((error) => console.log(error.response.data.msg));
+      .catch((error) => alert(error.response.data.msg));
   };
 
   const onFinishFailed = (errorInfo) => {

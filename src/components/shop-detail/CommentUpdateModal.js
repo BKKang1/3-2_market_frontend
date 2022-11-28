@@ -40,7 +40,7 @@ const CommentUpdateModal = ({ comments, setComments, comment, remove }) => {
 
   return (
     <>
-      <Button  type="primary" onClick={showModal} style={user===null?null:user.id===comment.userId? null:ndisplayBtn}>
+      <Button  type="primary" onClick={showModal} style={user===null?ndisplayBtn:user.id===comment.userId? null:ndisplayBtn}>
         수정
       </Button>
       <Modal

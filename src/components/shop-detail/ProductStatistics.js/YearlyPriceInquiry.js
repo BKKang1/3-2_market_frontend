@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { PlusOutlined } from "@ant-design/icons";
 import {
   PageHeader,
@@ -17,7 +17,7 @@ import {
 } from "antd";
 import { BrowserRouter, Link, Route, Routes, NavLink } from "react-router-dom";
 import LineGraph from "./LineGraph";
-import {cloudServerIP} from "../../../App"
+import { cloudServerIP } from "../../../App";
 
 const style0 = {
   marginLeft: "20%",
@@ -41,20 +41,24 @@ const style4 = {
 const style5 = {
   paddingBottom: "20%",
 };
-
 function YearlyPriceInquiry({ kindGradeId }) {
   const status1 = "연간-소매";
   const status2 = "연간-도매";
+  const [data1, setData1] = useState([]);
+  const [data2, setData2] = useState([]);
 
-  const data1 = [status1, kindGradeId];
-  const data2 = [status2, kindGradeId];
+  useEffect(() => {
+    setDatas();
+  }, []);
+  function setDatas() {
+    setData1 ([status1, kindGradeId]);
+    setData2 ([status2, kindGradeId]);
+  }
 
   return (
     <div>
-    
-        <LineGraph data={data1}></LineGraph>
-        <LineGraph data={data2}></LineGraph>
- 
+      <LineGraph data={data1}></LineGraph>
+      <LineGraph data={data2}></LineGraph>
     </div>
   );
 }
