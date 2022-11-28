@@ -1,6 +1,7 @@
 import { Button, Modal } from "antd";
 import React, { useState } from "react";
 import Order from "./Order";
+import {cloudServerIP} from "../../App"
 
 const OrderModal = ({ price, productId }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -27,7 +28,7 @@ const OrderModal = ({ price, productId }) => {
       </Button>
       <Modal
         destroyOnClose="true"
-        title="Basic Modal"
+        title="구매 하기"
         open={isModalOpen}
         onOk={handleOk}
         onCancel={handleCancel}

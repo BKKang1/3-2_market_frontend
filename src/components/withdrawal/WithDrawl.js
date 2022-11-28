@@ -1,11 +1,11 @@
 import { Button, Checkbox, Form, Input } from "antd";
-
 import { useState } from "react";
 import { userState } from "../../recoil/userState";
 import axios from "axios";
 import Password from "antd/lib/input/Password";
 import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
+import {cloudServerIP} from "../../App"
 
 function WithDrawl({ onCancel }) {
   const [user, setUser] = useRecoilState(userState);
@@ -28,8 +28,9 @@ function WithDrawl({ onCancel }) {
 
   const loginCheck = () => {
     axios
-      .get("/api/user/login-check", {
+      .get(cloudServerIP + "/api/user/login-check", {
         headers: { "Content-Type": "application/json" },
+        withCredentials: true
       })
       .then(() => {
        
@@ -48,8 +49,9 @@ function WithDrawl({ onCancel }) {
     //console.log(json);
 
     axios
-      .delete("/api/user", {
+      .delete(cloudServerIP + "/api/user", {
         data: { password: values.password },
+        withCredentials: true
       })
 
       .then((response) => alert(response.data.result.msg))

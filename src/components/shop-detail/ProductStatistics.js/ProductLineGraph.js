@@ -1,9 +1,7 @@
 import { Select } from "antd";
 import React, { useState } from "react";
 import GraphController from "./GraphController";
-
-
-
+import {cloudServerIP} from "../../../App"
 
 const ProductLineGraph = ({ kindGradeId }) => {
   const [value, setValue] = useState();

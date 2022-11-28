@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { PageHeader, Form, Button } from "antd";
-
 import DateChoice from "../../main/DateChoice";
 import LineGraph from "./LineGraph";
+import {cloudServerIP} from "../../../App"
 
 const style0 = {
   marginLeft: "20%",

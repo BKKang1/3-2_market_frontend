@@ -37,7 +37,11 @@ import MainContent from "./components/main/MainContent";
 import RegisteredProduct from "./components/sellerMyPage/RegisteredProduct";
 import SellerGrade from "./components/sellerMyPage/SellerGrade";
 
+//var cloudServerIP = 'https://34.64.178.90:8080';
+//var cloudServerIP = 'http://localhost:8080';
+var cloudServerIP = 'http://34.64.111.237:8080';
 function App() {
+
   return (
     <BrowserRouter>
       <MainLayout></MainLayout>
@@ -85,16 +89,37 @@ function App() {
           element={<MemberEdit />}
         ></Route>
         <Route path="/BuyerMyPage/Cart" element={<Cart />}></Route>
-        <Route path="/BuyerMyPage/PaymentHistory" element={<PaymentHistory />}></Route>
-        <Route path="/BuyerMyPage/PaymentHistoryGraph" element={<PaymentHistoryGraph />}></Route>
-        <Route path="/BuyerMyPage/BusinessApplication" element={<BusinessApplication />}></Route>
-        <Route path="/BuyerMyPage/BusinessApplicationList" element={<BusinessApplicationList />}></Route>
+        <Route
+          path="/BuyerMyPage/PaymentHistory"
+          element={<PaymentHistory />}
+        ></Route>
+        <Route
+          path="/BuyerMyPage/PaymentHistoryGraph"
+          element={<PaymentHistoryGraph />}
+        ></Route>
+        <Route
+          path="/BuyerMyPage/BusinessApplication"
+          element={<BusinessApplication />}
+        ></Route>
+        <Route
+          path="/BuyerMyPage/BusinessApplicationList"
+          element={<BusinessApplicationList />}
+        ></Route>
         {/*---판매자 마이 페이지--- */}
         <Route path="/SellerMyPage" element={<SellerMyPage />}></Route>
-        <Route path="/SellerMyPage/SaleHistory" element={<SaleHistory />}></Route>
-        <Route path="/SellerMyPage/SaleDataGraph" element={<SaleDataGraph />}></Route>
-        <Route path="/SellerMyPage/SellerGrade" element={<SellerGrade />}></Route>
-  
+        <Route
+          path="/SellerMyPage/SaleHistory"
+          element={<SaleHistory />}
+        ></Route>
+        <Route
+          path="/SellerMyPage/SaleDataGraph"
+          element={<SaleDataGraph />}
+        ></Route>
+        <Route
+          path="/SellerMyPage/SellerGrade"
+          element={<SellerGrade />}
+        ></Route>
+
         <Route
           path="/SellerMyPage/RegisteredProduct"
           element={<RegisteredProduct />}
@@ -125,4 +150,4 @@ function App() {
     </BrowserRouter>
   );
 }
-export default App;
+export { App, cloudServerIP };

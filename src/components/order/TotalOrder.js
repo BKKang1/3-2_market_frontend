@@ -3,6 +3,7 @@ import Address from "./Address";
 import React, { useEffect, useState } from "react";
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
+import {cloudServerIP} from "../../App"
 
 function TotalOrder(props) {
     const navigate = useNavigate();
@@ -25,7 +26,7 @@ function TotalOrder(props) {
 
     useEffect(() => {
         axios
-          .get("/api/order/address")
+          .get(cloudServerIP + "/api/order/address",{withCredentials: true})
           .then((response) => {
             console.log(response.data.result);
             setAddress(response.data.result.road);
@@ -61,8 +62,9 @@ function TotalOrder(props) {
         console.log(json);
     
         axios
-          .post("/api/order", json, {
+          .post(cloudServerIP + "/api/order", json, {
             headers: { "Content-Type": "application/json" },
+            withCredentials: true
           })
           .then((response) => alert(response.data.result.msg))
     

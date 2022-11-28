@@ -6,6 +6,8 @@ import ShopCascader from "./ShopCascader";
 import ShopSelect from "./ShopSelect";
 import { useRef, useState } from "react";
 import ShopSearch from "./ShopSearch";
+import {cloudServerIP} from "../../App"
+
 const { Search } = Input;
 const suffix = (
   <AudioOutlined
@@ -25,6 +27,10 @@ const CasStyle = {
 const style = {
   marginTop: "2rem",
   marginLeft: "4rem",
+};
+const style2 = {
+  position: 'fixed',
+  left: '20px',
 };
 
 const Shop = () => {

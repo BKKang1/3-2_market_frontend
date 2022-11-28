@@ -6,6 +6,7 @@ import { Typography } from "antd";
 import ImgCrop from "antd-img-crop";
 import axios from "axios";
 import BuyerMyPage from "./BuyerMyPage";
+import {cloudServerIP} from "../../App"
 
 function BusinessApplicationList(){
     const navigate = useNavigate();
@@ -44,10 +45,10 @@ function BusinessApplicationList(){
   
     useEffect(() => {
         axios
-        .get("/api/business/user", {
+        .get(cloudServerIP + "/api/business/user", {
           headers: { "Content-Type": "application/json" },
-        },
-        { withCredentials: true })
+          withCredentials : true
+        },)
         .then((response) => {
             console.log(response.data.result);
             setData(response.data.result);

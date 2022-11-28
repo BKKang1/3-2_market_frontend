@@ -1,6 +1,8 @@
 import YearlyPriceInquiry from "./YearlyPriceInquiry";
 import MonthlyPriceInquiry from "./MonthlyPriceInquiry";
 import DailyPriceInquiry from "./DailyPriceInquiry";
+import {cloudServerIP} from "../../../App"
+
 function GraphController({value, kindGradeId}) {
   if (value === 1) {
     return <YearlyPriceInquiry kindGradeId={kindGradeId}></YearlyPriceInquiry>;

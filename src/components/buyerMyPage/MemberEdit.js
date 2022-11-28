@@ -5,6 +5,7 @@ import "./Table.css";
 import { Button, Space, Table, Tag } from 'antd';
 import { BrowserRouter, Link, Route, Routes, NavLink } from "react-router-dom";
 import BuyerMyPage from "../buyerMyPage/BuyerMyPage";
+import {cloudServerIP} from "../../App"
 
 const style0 = {
   marginLeft: "20%",
@@ -35,7 +36,7 @@ function MemberEdit(){
 
   useEffect(() => {
     axios
-      .get("/api/user", 
+      .get(cloudServerIP + "/api/user", 
         { withCredentials: true })
       .then((res) => {
       //console.log(res.data.result);
@@ -59,7 +60,7 @@ function MemberEdit(){
   
   const updateUserInfo = () => {
     axios
-      .patch("/api/user", userInfo,
+      .patch(cloudServerIP + "/api/user", userInfo,
       { withCredentials: true })
       .then((res) => {
         console.log(res.data.result.msg);

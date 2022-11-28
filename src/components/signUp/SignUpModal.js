@@ -1,6 +1,7 @@
 import { Button, Modal } from "antd";
 import React, { useState } from "react";
 import SignUp from "./SignUp.js";
+import {cloudServerIP} from "../../App"
 
 const SignUpModal = () => {
   const [open, setOpen] = useState(false);

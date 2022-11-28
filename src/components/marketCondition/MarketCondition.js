@@ -4,6 +4,7 @@ import "antd/dist/antd.min.css";
 import pic from "../../img/회원.jpg"
 import React, { useState } from "react";
 import { BrowserRouter, Link, Route, Routes, NavLink } from "react-router-dom";
+import {cloudServerIP} from "../../App"
 
 const style0 = {
     marginLeft: "20%",

@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Avatar, Divider, List, Skeleton, Button } from 'antd';
 import {useNavigate} from "react-router-dom";
 import React, { useEffect, useState } from 'react';
+import {cloudServerIP} from "../../App"
 
 const style0 = {
     //backgroundColor: "#95a5a688",
@@ -48,8 +49,9 @@ function PaymentHistoryDetail(props){
     const deletOrder = (e) => {
         console.log(e);
         axios
-        .delete(`/api/order/${e}`, {
+        .delete(cloudServerIP + `/api/order/${e}`, {
             headers: { "Content-Type": "application/json" },
+            withCredentials : true
         })
         .then((response) => {
             alert(response.data.result.msg);
@@ -79,7 +81,7 @@ function PaymentHistoryDetail(props){
                             <img
                                 width={272}
                                 alt="logo"
-                                src={`/${item.path}`}
+                                src={cloudServerIP + item.path}
                                 style={imgStyle}
                             />
                         }

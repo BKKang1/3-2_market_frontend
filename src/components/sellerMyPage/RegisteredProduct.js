@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import SellerCreateWriting from "./SellerCreateWriting";
 import SellerMyPage from "./SellerMyPage";
 import { useNavigate } from "react-router-dom";
+import {cloudServerIP} from "../../App"
 
 const imgStyle = {
   width: "200px",
@@ -29,9 +30,10 @@ function RegisteredProduct() {
   useEffect(() => {
     axios
       .get(
-        `/api/seller-mypage/sale-list?pageSize=${pageSize}&pageNum=${pageNum}`,
+        cloudServerIP + `/api/seller-mypage/sale-list?pageSize=${pageSize}&pageNum=${pageNum}`,
         {
           headers: { "Content-Type": "application/json" },
+          withCredentials: true
         }
       )
       .then((response) => {
@@ -65,8 +67,9 @@ function RegisteredProduct() {
   const confirm = (props) => {
     console.log("c", props);
     axios
-      .delete(`/api/products/${props}`, {
+      .delete(cloudServerIP + `/api/products/${props}`, {
         headers: { "Content-Type": "application/json" },
+        withCredentials: true
       })
       .then((response) => {
         message.success(response.data.result.msg);
@@ -137,7 +140,7 @@ function RegisteredProduct() {
                   <img
                     width={272}
                     alt="logo"
-                    src={`/${item.signatureImgSrc}`}
+                    src={cloudServerIP + item.signatureImgSrc}
                     style={imgStyle}
                   />
                 }

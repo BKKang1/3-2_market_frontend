@@ -10,6 +10,7 @@ import { useRecoilState } from "recoil";
 import { userState } from "../../recoil/userState";
 import MonthChoice from "../main/MonthChoice";
 import SellerMyPage from "./SellerMyPage";
+import {cloudServerIP} from "../../App"
 
 const style0 = {
     marginLeft: "20%",
@@ -86,14 +87,18 @@ function SaleHistory(){
     const getData = () => {
         axios
             .get("/api/seller-mypage/sale-history", {
-                headers: { "Content-Type": "application/json" },
+                headers: { 
+                    "Content-Type": "application/json",
+                },
                 params: {
                     startDate : date[0],
                     endDate : date[1],
                     pageSize : pageSize,
                     pageNum : pageNum,
                 },
-            },)
+                withCredentials: true
+            }, 
+            )
             .then((response) => {
                 console.log(response);
                 setServerData(response.data.result);
@@ -151,7 +156,7 @@ function SaleHistory(){
                                 <img
                                     width={272}
                                     alt="logo"
-                                    src={`/${item.path}`}
+                                    src={cloudServerIP + item.path}
                                     style={imgStyle}
                                 />
                                 }

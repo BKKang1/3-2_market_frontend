@@ -10,6 +10,7 @@ import { useRecoilState } from "recoil";
 import { userState } from "../../recoil/userState";
 import SellerMyPage from "./SellerMyPage";
 import MonthChoice from "../main/MonthChoice";
+import {cloudServerIP} from "../../App"
 
 const style0 = {
     marginLeft: "20%",
@@ -88,8 +89,9 @@ function SellerGrade(){
 
     useEffect(() => {
         axios
-        .get("/api/seller-mypage/trust-score", {
+        .get(cloudServerIP + "/api/seller-mypage/trust-score", {
             headers: { "Content-Type": "application/json" },
+            withCredentials: true
         },)
         .then((response) => {
             console.log(response.data.result);
@@ -101,12 +103,13 @@ function SellerGrade(){
 
     const getGraphData1 = () => {
         axios
-            .get("/api/seller-mypage/trust-score-statistics", {
+            .get(cloudServerIP + "/api/seller-mypage/trust-score-statistics", {
                 headers: { "Content-Type": "application/json" },
                 params: {
                     startDate : date[0],
                     endDate : date[1],
                 },
+                withCredentials: true
             },)
             .then((response) => {
                 console.log(response);
@@ -118,12 +121,13 @@ function SellerGrade(){
 
     const getGraphData2 = () => {
         axios
-            .get("/api/seller-mypage/trust-score-percentile-statistics", {
+            .get(cloudServerIP + "/api/seller-mypage/trust-score-percentile-statistics", {
                 headers: { "Content-Type": "application/json" },
                 params: {
                     startDate : date[0],
                     endDate : date[1],
                 },
+                withCredentials: true
             },)
             .then((response) => {
                 console.log(response.data);

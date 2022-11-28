@@ -7,6 +7,7 @@ import Title from "../main/Title";
 import { userState } from "../../recoil/userState";
 import { useRecoilState } from "recoil";
 import axios from "axios";
+import {cloudServerIP} from "../../App"
 
 function MainLayout() {
   const [user, setUser] = useRecoilState(userState);

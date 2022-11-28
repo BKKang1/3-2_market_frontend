@@ -5,6 +5,7 @@ import axios from "axios";
 import React from "react";
 import { Link } from "react-router-dom";
 import { useResetRecoilState } from "recoil";
+import {cloudServerIP} from "../../App"
 
 const imgStyle = {
   width: "200px",
@@ -26,9 +27,10 @@ function ShopList({ selId, casId, serverData, setServerData }) {
   useEffect(() => {
     axios
       .get(
-        `/api/products?productName=&orderBy=${selId.current}&itemCategoryCode=${casId.current[0]}&itemCode=${casId.current[1]}&kindId=${casId.current[2]}&kindGradeId=${casId.current[3]}&pageSize=${pageSize}&pageNum=${pageNum}`,
+        cloudServerIP + `/api/products?productName=&orderBy=${selId.current}&itemCategoryCode=${casId.current[0]}&itemCode=${casId.current[1]}&kindId=${casId.current[2]}&kindGradeId=${casId.current[3]}&pageSize=${pageSize}&pageNum=${pageNum}`,
         {
           headers: { "Content-Type": "application/json" },
+          withCredentials: true
         }
       )
       .then((response) => {
@@ -65,12 +67,12 @@ function ShopList({ selId, casId, serverData, setServerData }) {
             actions={[
               <IconText
                 icon={StarOutlined}
-                text="판매자 등급"
+                text={item.sellerRank+"등급"}
                 key={item.sellerRank}
               />,
               <IconText
                 icon={LikeOutlined}
-                text="판매자 백분위"
+                text={"백분위:"+item.sellerPercent+"%"}
                 key={item.sellerPercent}
               />,
             ]}
@@ -78,7 +80,7 @@ function ShopList({ selId, casId, serverData, setServerData }) {
               <img
                 width={272}
                 alt="logo"
-                src={item.signatureImgSrc}
+                src={cloudServerIP + item.signatureImgSrc}
                 style={imgStyle}
               />
             }

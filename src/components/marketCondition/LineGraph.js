@@ -3,6 +3,7 @@ import Chart from 'chart.js/auto';
 import { Line } from 'react-chartjs-2';
 import {useState, useEffect } from "react";
 import axios from 'axios';
+import {cloudServerIP} from "../../App"
 
 let options = {
     spanGaps: true,
@@ -61,13 +62,15 @@ function LineGraph(props){
 
         if(props.data[0] == "일간-소매"){
             axios
-                .get("http://localhost:8080/api/wholesale-and-retail/day/retail",
-                {params: {
+                .get(cloudServerIP + "/api/wholesale-and-retail/day/retail",
+                {
+                    params: {
                     start: props.data[2][0],
                     end: props.data[2][1],
                     kindGradeId: props.data[1],
-                }}, 
-                { withCredentials: false })
+                    },
+                    withCredentials: true
+                },)
                 .then((res) => {
                     setStatus(res.data.data.item[res.data.data.item.length-1].itemname + ">>" 
                     + res.data.data.item[res.data.data.item.length-1].kindname);
@@ -83,13 +86,15 @@ function LineGraph(props){
         }
         else if(props.data[0] == "일간-도매"){
             axios
-                .get("http://localhost:8080/api/wholesale-and-retail/day/wholesale",
-                {params: {
-                    start: props.data[2][0],
-                    end: props.data[2][1],
-                    kindGradeId: props.data[1],
-                }}, 
-                { withCredentials: false })
+                .get(cloudServerIP + "/api/wholesale-and-retail/day/wholesale",
+                {
+                    params: {
+                        start: props.data[2][0],
+                        end: props.data[2][1],
+                        kindGradeId: props.data[1],
+                    },
+                    withCredentials: true 
+                },)
                 .then((res) => {
                     setStatus(res.data.data.item[res.data.data.item.length-1].itemname + ">>" 
                     + res.data.data.item[res.data.data.item.length-1].kindname);
@@ -105,12 +110,14 @@ function LineGraph(props){
         }
         else if(props.data[0] == "월간-소매"){
             axios
-                .get("/api/wholesale-and-retail/monthly",
-                {params: {
-                    year: props.data[2],
-                    kindGradeId: props.data[1],
-                }}, 
-                { withCredentials: false })
+                .get(cloudServerIP + "/api/wholesale-and-retail/monthly",
+                {
+                    params: {
+                        year: props.data[2],
+                        kindGradeId: props.data[1],
+                    },
+                    withCredentials: true
+                },)
                 .then((res) => {
                     console.log(res);
                     arr = res.data.price[1].item[3];
@@ -142,12 +149,14 @@ function LineGraph(props){
         }
         else if(props.data[0] == "월간-도매"){
             axios
-                .get("/api/wholesale-and-retail/monthly",
-                {params: {
+                .get(cloudServerIP + "/api/wholesale-and-retail/monthly",
+                {
+                    params: {
                     year: props.data[2],
                     kindGradeId: props.data[1],
-                }}, 
-                { withCredentials: false })
+                    },
+                    withCredentials: true
+                },)
                 .then((res) => {
                     console.log(res);
                     arr = res.data.price[0].item[3];
@@ -178,11 +187,13 @@ function LineGraph(props){
         }
         else if(props.data[0] == "연간-소매"){
             axios
-                .get("/api/wholesale-and-retail/yearly",
-                {params: {
-                    kindGradeId: props.data[1],
-                }}, 
-                { withCredentials: false })
+                .get(cloudServerIP + "/api/wholesale-and-retail/yearly",
+                {
+                    params: {
+                        kindGradeId: props.data[1],
+                    },
+                    withCredentials: true
+                },)
                 .then((res) => {
                     console.log(res);
                     arr = res.data.price[0].item;
@@ -199,11 +210,13 @@ function LineGraph(props){
         }
         else if(props.data[0] == "연간-도매"){
             axios
-                .get("/api/wholesale-and-retail/yearly",
-                {params: {
-                    kindGradeId: props.data[1],
-                }}, 
-                { withCredentials: false })
+                .get(cloudServerIP + "/api/wholesale-and-retail/yearly",
+                {
+                    params: {
+                        kindGradeId: props.data[1],
+                    },
+                    withCredentials: true
+                }, )
                 .then((res) => {
                     console.log(res);
                     arr = res.data.price[1].item;

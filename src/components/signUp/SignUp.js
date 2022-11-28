@@ -1,9 +1,10 @@
 import { Button, Checkbox, Form, Input } from "antd";
 import Address from "../order/Address";
 import { useState } from "react";
-
 import axios from "axios";
 import { json } from "react-router-dom";
+import {cloudServerIP} from "../../App"
+
 function SignUp({ onCancel }) {
   const [address, setAddress] = useState(null); // 주소
   const [jibun, setJibun] = useState(null);
@@ -29,8 +30,9 @@ function SignUp({ onCancel }) {
     const json = JSON.stringify(object);
     console.log(json);
     axios
-      .post("/api/user", json, {
+      .post(cloudServerIP + "/api/user", json, {
         headers: { "Content-Type": "application/json" },
+        withCredentials: true
       })
       .then((response) => alert(response.data.result.msg))
   

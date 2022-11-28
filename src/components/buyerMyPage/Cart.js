@@ -8,6 +8,7 @@ import { BrowserRouter, Link, Route, Routes, NavLink, useNavigate} from "react-r
 import BuyerMyPage from "../buyerMyPage/BuyerMyPage";
 import MemberEdit from "../buyerMyPage/MemberEdit";
 import TotalOrderModal from "../order/TotalOrderModal";
+import {cloudServerIP} from "../../App"
 
 const style0 = {
   marginLeft: "20%",
@@ -54,8 +55,9 @@ function Cart(){
 
     useEffect(() => {
         axios
-        .get("/api/carts", {
+        .get(cloudServerIP + "/api/carts", {
           headers: { "Content-Type": "application/json" },
+          withCredentials : true
         })
         .then((response) => {
           console.log(response.data.result);
@@ -67,8 +69,9 @@ function Cart(){
     const deletCart = (props) => {
         console.log("버튼 누르면 실행해야지");
         axios
-          .delete(`/api/carts/${props}`, {
+          .delete(cloudServerIP + `/api/carts/${props}`, {
             headers: { "Content-Type": "application/json" },
+            withCredentials : true
           })
           .then((response) => {
             alert(response.data.result.msg);
@@ -101,7 +104,7 @@ function Cart(){
                                     <img
                                         width={272}
                                         alt="logo"
-                                        src={`http://localhost:8080/${item.signatureImgSrc}`}
+                                        src={cloudServerIP + item.signatureImgSrc}
                                         style={imgStyle}
                                     />
                                 }

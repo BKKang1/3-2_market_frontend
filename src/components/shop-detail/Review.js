@@ -10,6 +10,8 @@ import CommentUpdateModal from "./CommentUpdateModal.js";
 import { useRecoilState } from "recoil";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import {cloudServerIP} from "../../App"
+
 const { TextArea } = Input;
 const style = {
   textAlign: "left",
@@ -25,8 +27,9 @@ const Review = ({ productNum }) => {
   let tempArr = [];
   useEffect(() => {
     axios
-      .get(`/api/review/${productNum}`, {
+      .get(cloudServerIP + `/api/review/${productNum}`, {
         headers: { "Content-Type": "application/json" },
+        withCredentials: true
       })
       .then((response) => {
         const data = response.data.result;
@@ -71,8 +74,9 @@ const Review = ({ productNum }) => {
 
   function remove(id) {
     axios
-      .delete(`/api/review/${id}`, {
+      .delete(cloudServerIP + `/api/review/${id}`, {
         headers: { "Content-Type": "application/json" },
+        withCredentials: true
       })
       .then(() => {
         refreshPage();

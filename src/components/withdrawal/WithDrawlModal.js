@@ -1,6 +1,8 @@
 import { Button, Modal } from "antd";
 import React, { useState } from "react";
 import WithDrawl from "./WithDrawl.js";
+import {cloudServerIP} from "../../App"
+
 const  WithDrawlModal= () => {
   const [open, setOpen] = useState(false);
   const [confirmLoading, setConfirmLoading] = useState(false);

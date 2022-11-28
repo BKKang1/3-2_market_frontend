@@ -17,6 +17,8 @@ import ImageUpload from "./ImgaeUpload";
 import { Typography } from "antd";
 import ImgCrop from "antd-img-crop";
 import axios from "axios";
+import {cloudServerIP} from "../../App"
+
 const { Title } = Typography;
 const { RangePicker } = DatePicker;
 const { TextArea } = Input;
@@ -43,7 +45,7 @@ function CreateWriting() {
   };
 
   useEffect(() => {
-    axios.get("/api/item-category").then((response) => {
+    axios.get(cloudServerIP + "/api/item-category").then((response) => {
       console.log(response.data.category);
       setOptions(response.data.category);
     });
@@ -52,8 +54,9 @@ function CreateWriting() {
   const onChange = (value) => {
     id.current = value[value.length - 1];
     axios
-      .get(`/api/item-category/${id.current}`, {
+      .get(cloudServerIP + `/api/item-category/${id.current}`, {
         headers: { "Content-Type": "application/json" },
+        withCredentials: true
       })
       .then((response) => {
         console.log(response.data.result);
@@ -92,8 +95,9 @@ function CreateWriting() {
     }
 
     axios
-      .post("/api/products", formData, {
+      .post(cloudServerIP + "/api/products", formData, {
         headers: { "Content-Type": "multipart/form-data" },
+        withCredentials: true
       })
       .then((response) => alert(response.data.result.msg))
 

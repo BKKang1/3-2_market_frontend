@@ -5,6 +5,7 @@ import { NavLink } from "react-router-dom";
 import { Space, Typography } from "antd";
 import axios from "axios";
 import { useEffect } from "react";
+import {cloudServerIP} from "../../App"
 
 const style = {
   padding: "8px 0",

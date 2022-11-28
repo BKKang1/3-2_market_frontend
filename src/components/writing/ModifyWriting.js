@@ -18,6 +18,7 @@ import ImgCrop from "antd-img-crop";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import SellerModifyWriting from "../sellerMyPage/SellerModifyWriting";
+import {cloudServerIP} from "../../App"
 
 const { Title } = Typography;
 const { RangePicker } = DatePicker;
@@ -96,7 +97,7 @@ function ModifyWriting() {
 
   useEffect(() => {
     axios
-      .get(`/api/products/update/${productId}`)
+      .get(cloudServerIP + `/api/products/update/${productId}`,{withCredentials: true})
       .then((response) => {
         console.log(response.data.result);
         setOri(response.data.result);
@@ -111,7 +112,7 @@ function ModifyWriting() {
       })
       .catch((error) => alert(error.response.data.msg));
 
-    axios.get("/api/item-category").then((response) => {
+    axios.get(cloudServerIP + "/api/item-category",{withCredentials: true}).then((response) => {
       console.log(response.data.category);
       setOptions(response.data.category);
     });
@@ -134,8 +135,9 @@ function ModifyWriting() {
   const onChange = (value) => {
     id.current = value[value.length - 1];
     axios
-      .get(`/api/item-category/${id.current}`, {
+      .get(cloudServerIP + `/api/item-category/${id.current}`, {
         headers: { "Content-Type": "application/json" },
+        withCredentials: true
       })
       .then((response) => {
         console.log(response.data.result);
@@ -151,8 +153,9 @@ function ModifyWriting() {
   const setId = (value) => {
     id.current = value;
     axios
-      .get(`/api/item-category/${id.current}`, {
+      .get(cloudServerIP + `/api/item-category/${id.current}`, {
         headers: { "Content-Type": "application/json" },
+        withCredentials: true
       })
       .then((response) => {
         console.log(response.data.result);
@@ -192,8 +195,9 @@ function ModifyWriting() {
     }
 
     axios
-      .post(`/api/products/update/${productId}`, formData, {
+      .post(cloudServerIP + `/api/products/update/${productId}`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
+        withCredentials: true
       })
       .then((response) => alert(response.data.result.msg))
       .then(() => {

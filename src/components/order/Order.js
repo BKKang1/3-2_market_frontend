@@ -2,6 +2,7 @@ import { Button, Form, Input, InputNumber } from "antd";
 import Address from "./Address";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import {cloudServerIP} from "../../App"
 
 function Order({ price, productId, handleCancel }) {
   const [form] = Form.useForm();
@@ -20,7 +21,7 @@ function Order({ price, productId, handleCancel }) {
   };
   useEffect(() => {
     axios
-      .get("/api/order/address")
+      .get(cloudServerIP + "/api/order/address",{withCredentials: true})
       .then((response) => {
         console.log(response.data.result);
         setAddress(response.data.result.road);
@@ -48,8 +49,9 @@ function Order({ price, productId, handleCancel }) {
     console.log(json);
 
     axios
-      .post("/api/order", json, {
+      .post(cloudServerIP + "/api/order", json, {
         headers: { "Content-Type": "application/json" },
+        withCredentials: true
       })
       .then((response) => {
         alert(response.data.result.msg);

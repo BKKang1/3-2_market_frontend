@@ -8,6 +8,7 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import { BrowserRouter, Link, Route, Routes, NavLink } from "react-router-dom";
 import ManagerMyPage from "./ManagerMyPage";
+import {cloudServerIP} from "../../App"
 
 const size = 4;
 
@@ -40,8 +41,9 @@ function BusinessApplicationInquiry(){
 
   useEffect(() => {
     axios
-    .get("/api/business", {
+    .get(cloudServerIP + "/api/business", {
       headers: { "Content-Type": "application/json" },
+      withCredentials : true
     })
     .then((response) => {
       console.log(response.data.result);

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import DaumPostcode from 'react-daum-postcode';
 import {Button} from 'antd'
+import {cloudServerIP} from "../../App"
 
 const Address = (props) => {
     /**

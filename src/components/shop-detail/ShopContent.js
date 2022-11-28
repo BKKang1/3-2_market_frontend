@@ -28,6 +28,8 @@ import MonthlyPriceInquiry from "./ProductStatistics.js/MonthlyPriceInquiry";
 import DailyPriceInquiry from "./ProductStatistics.js/DailyPriceInquiry";
 import ProductPieGraph from "./ProductPieGraph";
 import ProductLineGraph from "./ProductStatistics.js/ProductLineGraph";
+import {cloudServerIP} from "../../App"
+
 const ShopContent = () => {
   const { Text, Link, Title } = Typography;
   const [count, setCount] = useState(1);
@@ -99,8 +101,9 @@ const ShopContent = () => {
     console.log(json);
 
     axios
-      .post("/api/carts", json, {
+      .post(cloudServerIP + "/api/carts", json, {
         headers: { "Content-Type": "application/json" },
+        withCredentials: true
       })
       .then((response) => alert(response.data.result.msg))
 
@@ -129,8 +132,9 @@ const ShopContent = () => {
   const { productNum } = useParams();
   useEffect(() => {
     axios
-      .get(`/api/products/${productNum}`, {
+      .get(cloudServerIP + `/api/products/${productNum}`, {
         headers: { "Content-Type": "application/json" },
+        withCredentials: true
       })
       .then((response) => {
         const data = response.data.result;
@@ -153,7 +157,7 @@ const ShopContent = () => {
             <p>
               판매자 등급{" "}
               <Text type="danger">
-                {product.sellerRank} 상위({product.sellerPercent})%
+                {product.sellerRank} 백분위({product.sellerPercent})%
               </Text>
             </p>
             <p>
@@ -173,7 +177,7 @@ const ShopContent = () => {
           <Image
             width={250}
             height={250}
-            src={`../../${product.signatureImgSrc}`}
+            src={cloudServerIP + product.signatureImgSrc}
           />
           <div style={buttonBoxStyle}>
             <OrderModal
@@ -209,7 +213,7 @@ const ShopContent = () => {
                   <Image
                     width="800px"
                     height="600px"
-                    src={`../../${product.ordinalImgSrc[i]}`}
+                    src={cloudServerIP + product.ordinalImgSrc[i]}
                   ></Image>
                   <Divider />
                 </div>

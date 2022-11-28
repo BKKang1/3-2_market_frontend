@@ -6,6 +6,7 @@ import axios from 'axios';
 import ManagerMyPage from "./ManagerMyPage";
 import { useParams } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
+import {cloudServerIP} from "../../App"
 
 const size = 4;
 
@@ -47,8 +48,9 @@ const BusinessDefault = () => {
 
   useEffect(() => {
     axios
-      .get(`/api/business/${businessId}`, {
+      .get(cloudServerIP + `/api/business/${businessId}`, {
         headers: { "Content-Type": "application/json" },
+        withCredentials : true
       })
       .then((response) => {
         console.log(response.data.result);
@@ -58,8 +60,11 @@ const BusinessDefault = () => {
 
   const accept = () => {
     axios
-      .post(`/api/business/accept/${businessId}`, 
-        { withCredentials: true })
+      .post(cloudServerIP + `/api/business/accept/${businessId}`, 
+        { 
+          headers: { "Content-Type": "application/json" },
+          withCredentials: true 
+        })
       .then((res) => {
         console.log(res.data.result);
         alert(res.data.result.msg);
@@ -70,8 +75,11 @@ const BusinessDefault = () => {
 
   const reject = () => {
     axios
-    .post(`/api/business/reject/${businessId}`, 
-      { withCredentials: true })
+    .post(cloudServerIP + `/api/business/reject/${businessId}`, 
+      { 
+        headers: { "Content-Type": "application/json" },
+        withCredentials: true 
+      })
     .then((res) => {
       console.log(res.data.result);
       alert(res.data.result.msg);
@@ -115,7 +123,7 @@ const BusinessDefault = () => {
                     </tr>
                   </tbody>
               </table>
-              <img style={imgStyle} src={`/${data.imgSrc}`} />
+              <img style={imgStyle} src={cloudServerIP + data.imgSrc} />
               <Button className="button1" type="primary" style={style2} onClick = {accept}>
                 승인
               </Button>
