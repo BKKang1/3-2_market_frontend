@@ -6,7 +6,7 @@ const { Option } = Select;
 
 const ShopSelect = ({ selId }) => {
   const onChange = (value) => {
-
+    
     console.log(value);
     selId.current = value;
   };
@@ -22,6 +22,8 @@ const ShopSelect = ({ selId }) => {
     >
       <Option value="latest">시간순</Option>
       <Option value="price">가격순</Option>
+      <Option value="order-count">판매횟수순</Option>
+      <Option value="total-order-price">판매량순</Option>
     </Select>
   );
 };

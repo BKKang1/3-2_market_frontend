@@ -39,7 +39,7 @@ import SellerGrade from "./components/sellerMyPage/SellerGrade";
 
 //var cloudServerIP = 'https://34.64.178.90:8080';
 //var cloudServerIP = 'http://localhost:8080';
-var cloudServerIP = 'http://34.64.111.237:8080';
+var cloudServerIP = 'http://34.64.172.233:8080';
 function App() {
 
   return (

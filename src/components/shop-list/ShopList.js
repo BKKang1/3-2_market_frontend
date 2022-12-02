@@ -20,10 +20,8 @@ const IconText = ({ icon, text }) => (
 );
 
 //function ShopList(props) {
-function ShopList({ selId, casId, serverData, setServerData }) {
-  const [pageNum, setPageNum] = useState(1);
-  const [totalItemNum, setTotalItemNum] = useState(0);
-  const [pageSize, setPageSize] = useState(5);
+function ShopList({ selId, casId, serverData, setServerData,pageNum,pageSize,totalItemNum,setPageNum,setPageSize,setTotalItemNum}) {
+
   useEffect(() => {
     axios
       .get(
@@ -36,13 +34,12 @@ function ShopList({ selId, casId, serverData, setServerData }) {
       )
       .then((response) => {
         const data = response.data;
-
         setServerData(data.result);
         setTotalItemNum(data.lastPageNum * pageSize);
         console.log("serverdata: ", data);
       })
       .catch((error) => alert(error.response));
-  }, [pageNum, pageSize]);
+  }, [pageNum]);
 
   return (
     <List
@@ -75,7 +72,7 @@ function ShopList({ selId, casId, serverData, setServerData }) {
               />,
               <IconText
                 icon={RightOutlined}
-                text={"카테고리:" + item.category }
+                text={"카테고리:" + item.category}
                 key={item.category}
               />,
             ]}

@@ -37,6 +37,10 @@ const Shop = () => {
   const casId = useRef(["", "", "", ""]);
   const selId = useRef("latest");
   const searchText = useRef("");
+  const [pageNum, setPageNum] = useState(1);
+  const [pageSize, setPageSize] = useState(5);
+  const [totalItemNum, setTotalItemNum] = useState(0);
+
   const [serverData, setServerData] = useState();
   return (
     <div>
@@ -54,6 +58,12 @@ const Shop = () => {
               searchText={searchText}
               serverData={serverData}
               setServerData={setServerData}
+              pageNum={pageNum}
+              pageSize={pageSize}
+              totalItemNum={totalItemNum}
+              setPageNum={setPageNum}
+              setPageSize={setPageSize}
+              setTotalItemNum={setTotalItemNum}
             ></ShopSearch>
           </Space>
         </div>
@@ -64,6 +74,12 @@ const Shop = () => {
         selId={selId}
         serverData={serverData}
         setServerData={setServerData}
+        pageNum={pageNum}
+        pageSize={pageSize}
+        totalItemNum={totalItemNum}
+        setPageNum={setPageNum}
+        setPageSize={setPageSize}
+        setTotalItemNum={setTotalItemNum}
       ></ShopList>
     </div>
   );
